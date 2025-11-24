@@ -1,0 +1,26 @@
+App --> App.jsx
+    Prueba --> Prueba.jsx
+    Header --> Header.jsx <header>
+        img
+        Nav--> Header.jsx <nav>
+        Button --> Header.jsx <button>
+
+    Main   --> Main.jsx
+        ChristmasList --> ChristmasList.jsx --> >form>
+            ChristmasItem --> ChristmasItem.jsx -> <article> <h2><p>
+            ChristmasItem
+            ChristmasItem
+            ChristmasItem
+
+
+    Footer --> Main.jsx <footer>
+
+
+
+
+Predictions
+    DepartureBoard
+        Trains
+    DepartureBoard
+        Trains
+
