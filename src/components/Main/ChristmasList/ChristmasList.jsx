@@ -69,15 +69,30 @@ const ChristmasList = () => {
   };
 
   const paintData = () =>
-    items.map((item,index) => <ChristmasItem data={item} remove={()=>removeItem(index)} key={uuidv4()} />);
+    items.map((item, index) => (
+      <ChristmasItem
+        data={item}
+        remove={() => removeItem(index)}
+        edit={(updatedItem) => editItem(index,updatedItem)}
+        key={uuidv4()}
+      />
+    ));
 
   const loadData = () => setItems(products); // items = products
 
   const removeData = () => setItems([]); // items = []
 
   const removeItem = (i) => {
-    const filteredItems = items.filter((item,index) => index !== i);
-    setItems(filteredItems);// Carga el estado con los items restantes
+    const filteredItems = items.filter((item, index) => index !== i);
+    setItems(filteredItems); // Carga el estado con los items restantes
+  };
+
+  // i --> posicion del array a cambiar
+  // updatedItem --> dato actualizado a guardar
+  const editItem = (i, updatedItem) => {
+    let data = [...items]; // crea array nuevo
+    data[i] = updatedItem;
+    setItems(data); // Guardar el array con el elemento modificado
   };
 
   return (

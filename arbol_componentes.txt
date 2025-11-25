@@ -11,6 +11,17 @@ App --> App.jsx
             ChristmasItem
             ChristmasItem
             ChristmasItem
+        Home
+        About
+        Contact
+        ProductDetail
+        Staff
+        Topic
+        WishList
+        NotFound
+
+npx crcf src/components/Main/Home About Contact ProductDetail Staff Topic WishList NotFound -j  --notest -f 
+npx crcf src/components/Header/Nav -j  --notest -f 
 
 
     Footer --> Main.jsx <footer>
