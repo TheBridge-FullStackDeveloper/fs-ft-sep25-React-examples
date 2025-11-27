@@ -1,6 +1,6 @@
-App --> App.jsx
+App --> App.jsx --> *****PROVIDER de context******
     Prueba --> Prueba.jsx
-    Header --> Header.jsx <header>
+    Header --> Header.jsx <header> *****CONSUMER de context******
         img
         Nav--> Header.jsx <nav>
         Button --> Header.jsx <button>
@@ -11,7 +11,7 @@ App --> App.jsx
             ChristmasItem
             ChristmasItem
             ChristmasItem
-        Home
+        Home             *****CONSUMER de context******
         About
         Contact
         ProductDetail
@@ -24,6 +24,11 @@ npx crcf src/components/Main/Home About Contact ProductDetail Staff Topic WishLi
 npx crcf src/components/Header/Nav -j  --notest -f 
 npx crcf src/components/Main/Staff/Card -j  --notest -f 
 npx crcf src/components/Main/Topic/TopicCard -j  --notest -f 
+
+npx crcf src/components/Main/WishList/Form WishItems -j  --notest -f 
+npx crcf src/components/Main/WishList/WishItems/WishCard -j  --notest -f 
+
+
 
 
 
