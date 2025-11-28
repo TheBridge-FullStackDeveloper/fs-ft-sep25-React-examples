@@ -1,0 +1,14 @@
+// Fichero de estilos principal
+// Aquí poner todas las hojas de estilos que usará tu web. No hay que añadir el guión bajo (_)
+// porque SASS lo interpreta como un fichero parcial que no se compilará directamente.
+
+@use './views/index.scss';
+@use './views/App.scss';
+
+// Cada componente que tenga estilos propios, añadirlos aquí
+@use './components/Header.scss';
+@use './components/Nav.scss';
+@use './components/Footer.scss';
+@use './components/Staff.scss';
+@use './components/Card.scss';
+@use './components/ChristmasItem.scss';

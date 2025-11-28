@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ChristmasItem.css";
+// import "./ChristmasItem.css";
 
 const ChristmasItem = ({ data, remove, edit }) => {
   const { title, description, price, img_url } = data;

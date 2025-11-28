@@ -1,0 +1,9 @@
+@use '../utils/variables' as variables;
+
+.staff{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: variables.$columbia-blue;
+}

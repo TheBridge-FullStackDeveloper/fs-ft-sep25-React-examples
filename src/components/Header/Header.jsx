@@ -1,27 +1,25 @@
 import React, { useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import Nav from "./Nav";
-
-
 import { UserContext } from "../../context/UserContext";
 
 const Header = () => {
-  // Consumir el contexto
   const { username, updateUsername } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const handleClick = ()=> navigate("/");
+  const handleClick = () => navigate("/");
 
   return (
-    <header>
+    <header className='header-day'>
       <Nav />
-      {username ? 
+      {username ? (
         <>
           <span>Hola, {username}</span>
           <button onClick={() => updateUsername("")}>Logout</button>
         </>
-       : <button onClick={handleClick}>Login</button>
-      }
+      ) : (
+        <button onClick={handleClick}>Login</button>
+      )}
     </header>
   );
 };

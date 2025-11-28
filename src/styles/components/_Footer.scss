@@ -1,0 +1,29 @@
+@use '../utils/mixins' as mixins;
+@use '../utils/variables' as variables;
+
+
+%footer-bar-basic{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height:12vh;
+    color:variables.$seasalt;
+    margin:0px;
+    &>ul{
+        list-style: none;
+        display:flex;
+        gap: 10px
+    }
+}
+
+.footer-day{
+    @extend %footer-bar-basic;
+    background-color:variables.$cadet-gray;
+    color: variables.$seasalt;
+}
+
+.footer-night{
+    @extend %footer-bar-basic;
+    background-color: variables.$columbia-blue;
+    color: variables.$seasalt;
+}

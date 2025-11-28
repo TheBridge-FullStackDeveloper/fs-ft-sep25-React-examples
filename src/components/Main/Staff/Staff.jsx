@@ -23,7 +23,7 @@ const Staff = () => {
   return (
     <div>
       <h4>Pokemons encontrados: {pokemons.count || "Buscando..."}</h4>
-      <section>
+      <section className="staff">
         {pokemons.results ? (
           renderCards()
         ) : (

@@ -1,0 +1,36 @@
+@use "../utils/variables" as variables;
+@use '../utils/mixins' as mixins;
+
+%header-basic{
+    @include mixins.shadow(variables.$cadet-gray);
+    display: flex;
+    max-height: 12vh;
+    min-height: 50px;
+    margin:0px;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.header-day{
+    @extend %header-basic;
+    background-color: variables.$light-blue;
+    color: variables.$black;
+}
+    
+.header-night{
+    @extend %header-basic;
+    background-color: variables.$black;
+    color: variables.$seasalt;
+}
+
+.pUser-day{
+    color: variables.$seasalt;
+}
+
+.pUser-night{
+    color: variables.$seasalt;
+}

@@ -43,3 +43,234 @@ Predictions
     DepartureBoard
         Trains
 
+Pasos para configurar SASS
+
+1. Instalar SASS
+npm i sass
+2. Crear carpeta "styles" dentro de src. Aquí metemos los ficheros de SASS
+ mkdir src/styles
+3. Crear carpetas  "components", "utils", "views" dentro de styles
+mkdir src/styles/components
+mkdir src/styles/utils
+mkdir src/styles/views
+4. Crear fichero "src/styles/styles.scss"
+touch src/styles/styles.scss
+4. Crear ficheros mixins y variables
+touch src/styles/utils/mixins.scss
+touch src/styles/utils/variables.scss
+5. Crear ficheros para los estilos generales de la Web
+touch src/styles/views/_App.scss
+touch src/styles/views/_index.scss
+
+6. Copiar App.css e index.css a sus ficheros correspondientes en SASS. Comenta lo que has copiado
+7. Configurar los ficheros SCSS a utilizar/importar por la web en styles.scss. No hace falta añadir los guiones bajos de los ficheros (_App.scss, _index.scss)
+
+8. importar "styles.scss" en src/main.jsx para activar SASS en el sistema. Comentar importación de "index.css"
+
+9. Ahora ya deberás poder ver los estilos como antes en la web
+
+10. Empezamos dando estilos a Header y Nav. Crear estos ficheros:
+touch src/styles/components/_Header.scss
+touch src/styles/components/_Nav.scss
+
+11. Crear mixins para probar
+@mixin shadow ($shadow-color) {
+    -webkit-box-shadow: 7px 7px 5px -1px $shadow-color;
+    -moz-box-shadow: 7px 7px 5px -1px $shadow-color;
+    box-shadow: 7px 7px 5px -1px $shadow-color;
+}
+
+12. Crear variables para probar
+$black: #000100ff;
+$cadet-gray: #a1a6b4ff;
+$light-blue: #94c5ccff;
+$columbia-blue: #b4d2e7ff;
+$seasalt: #f8f8f8ff;
+
+13. Estilos para _Header.scss
+@use "../utils/variables" as variables;
+@use '../utils/mixins' as mixins;
+
+%header-basic{
+    @include mixins.shadow(variables.$cadet-gray);
+    display: flex;
+    max-height: 12vh;
+    min-height: 50px;
+    margin:0px;
+    align-items: center;
+}
+
+.header-day{
+    @extend %header-basic;
+    background-color: variables.$light-blue;
+    color: variables.$black;
+    }
+    
+.header-night{
+    @extend %header-basic;
+    background-color: variables.$black;
+    color: variables.$seasalt;
+}
+
+.pUser-day{
+    color: variables.$seasalt;
+}
+
+.pUser-night{
+    color: variables.$seasalt;
+}
+
+14. Estilos para _Nav.scss
+@use "../utils/variables" as variables;
+
+.nav-bar {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  width: 70vw;
+  padding-left: 0;
+
+  & > ul {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    list-style: none;
+  }
+}
+
+a {
+  color: variables.$black;
+}
+
+.link-day {
+  color: variables.$black;
+}
+
+.link-night {
+  color: variables.$seasalt;
+}
+
+15. Habilitar en "styles.scss" los estilos de _Header.scss y _Nav.scss
+
+16. Aplicar las clases CSS en los componentes "Header.jsx" y "Nav.jsx"
+
+ <header className='header-day'>
+<nav className='nav-bar'>
+
+No hace falta importar _Header.scss en el fichero Header.jsx. El sistema ya lo hace solo
+
+NO se usa "night"
+
+17. Rellenamos Footer.jsx con HTML
+import React from "react";
+
+const Footer = () => {
+  return (
+    <footer className= "footer-day">
+      <ul>
+        <li>
+          <a href="#">Twitter</a>
+        </li>
+        <li>
+          <a href="#">Facebook</a>
+        </li>
+        <li>
+          <a href="#">Instagram</a>
+        </li>
+      </ul>
+    </footer>
+  );
+};
+
+export default Footer;
+
+17. Crear _Footer.scss
+touch src/styles/components/_Footer.scss
+
+18. Rellenamos estilos para _Footer.scss
+@use '../utils/mixins' as mixins;
+@use '../utils/variables' as variables;
+
+
+%footer-bar-basic{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height:12vh;
+    color:variables.$seasalt;
+    margin:0px;
+    &>ul{
+        list-style: none;
+        display:flex;
+        gap: 10px
+    }
+}
+
+.footer-day{
+    @extend %footer-bar-basic;
+    background-color:variables.$cadet-gray;
+    color: variables.$seasalt;
+}
+
+.footer-night{
+    @extend %footer-bar-basic;
+    background-color: variables.$light-blue;
+    color: variables.$seasalt;
+}
+
+19. Importar/habilitar _Footer.scss en styles.scss
+ 
+20. Vamos a dar estilos a Staff. Crear _Staff.scss
+touch src/styles/components/_Staff.scss
+
+21. Añadir estilos a _Staff.scss
+@use '../utils/variables' as variables;
+
+.staff{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: variables.$columbia-blue;
+}
+
+22. Importar/habilitar _Staff.scss en styles.scss
+
+23. Vamos a dar estilos a Card. Crear Card.scss
+touch src/styles/components/_Card.scss
+
+24. Añadir estilos a _Card.scss
+@use '../utils/variables' as variables;
+@use '../utils/mixins' as mixins;
+
+.card{
+    background-color: variables.$seasalt;
+    margin: 20px;
+    max-width: 200px;
+    min-width: 200px;
+    min-height: 50px;
+    border-radius: 20px;
+    @include mixins.shadow(variables.$light-blue);
+
+    h4{
+        color:variables.$black;
+    }
+}
+
+25. Importar/habilitar _Card.scss en styles.scss
+
+26. Añade las clases en Staff.jsx,Card.jsx
+
+<section className="staff">
+
+<article className="card">
+
+27. Actualizar el estilo de los items en ChristmasItem.css Ahora mismo tiene estilos en ChristmasItem.css que hay que migrar a _ChristmasItem.scss. Copia y comenta el fichero ChristmasItem.css
+
+Crear ChristmasItem.scss
+touch src/styles/components/_ChristmasItem.scss
+
+Guarda los estilos que copiaste.
+Comenta/borra el import "./ChristmasItem.css"; de ChristmasItem.jsx
+
+28. Importar/habilitar _ChristmasItem.scss en styles.scss
